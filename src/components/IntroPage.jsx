@@ -2,6 +2,35 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ShoppingBag, Zap, Shield } from 'lucide-react';
+import oyqkym1 from '../images/okym1.png'
+import oyqkym2 from '../images/okym2.png'
+import oyqkym3 from '../images/okym3.png'
+import oyqkym4 from '../images/okym4.png'
+import oyqkym5 from '../images/okym5.png'
+
+import fuqkym1 from '../images/fkym1.png'
+import fuqkym2 from '../images/fkym2.png'
+import fuqkym3 from '../images/fkym3.png'
+import fuqkym4 from '../images/fkym4.png'
+// import fuqkym5 from '-------------------'
+
+import dvkym1 from '../images/dv1.png'
+import dvkym2 from '../images/dv2.png'
+import dvkym3 from '../images/dv3.png'
+// import dvkym4 from '-----------------'
+// import dvkym5 from '-----------------'
+
+import tkyim1 from '../images/tkym1.png'
+import tkyim2 from '../images/tkym2.png'
+import tkyim3 from '../images/tkym3.png'
+import tkyim4 from '../images/tkym4.png'
+import tkyim5 from '../images/tkym5.png'
+
+import bkyim1 from '../images/bkym1.png'
+import bkyim2 from '../images/bkym2.png'
+import bkyim3 from '../images/bkym3.png'
+import bkyim4 from '../images/bkym4.png'
+import bkyim5 from '../images/bkym5.png'
 
 const IntroPage = ({ isDark = true, language = 'uz' }) => {
   useEffect(() => {
@@ -33,66 +62,71 @@ const IntroPage = ({ isDark = true, language = 'uz' }) => {
   const products = Array(30).fill(null).map((_, i) => ({
     id: i + 1,
     name: [
-      'Premium Wireless Pro',
-      'Smart Watch Ultra',
-      'Portable Speaker Max',
-      'Gaming Headset Pro',
-      'Wireless Earbuds Elite',
-      'Smart Camera 4K',
-      'Laptop Stand Premium',
-      'Mechanical Keyboard RGB',
-      'Gaming Mouse Wireless',
-      'USB-C Hub Pro',
-      'Webcam HD 1080p',
-      'Monitor 27" 4K',
-      'Desk Lamp Smart',
-      'Phone Holder Auto',
-      'Power Bank 20000mAh',
-      'Cable Organizer Set',
-      'Screen Protector Glass',
-      'Wireless Charger Fast',
-      'Bluetooth Adapter 5.0',
-      'HDMI Cable 4K',
-      'External SSD 1TB',
-      'Microphone Studio',
-      'Tablet Stand Adjustable',
-      'Smart Plug WiFi',
-      'Air Purifier Mini',
-      'Ring Light LED',
-      'Tripod Professional',
-      'Gimbal Stabilizer',
-      'Action Camera 4K',
-      'Drone Mini Pro'
+      'Oyoq kiyim',
+      'Oyoq kiyim',
+      'Oyoq kiyim',
+      'Oyoq kiyim',
+      'Oyoq kiyim',
+      'Futbolka',
+      'Futbolka',
+      'Futbolka',
+      'Futbolka',
+      'Futbolka',
+      'Dvoyka',
+      'Dvoyka',
+      'Dvoyka',
+      'Dvoyka',
+      'Dvoyka',
+      'Ustki Kiyim',
+      'Ustki Kiyim',
+      'Ustki Kiyim',
+      'Ustki Kiyim',
+      'Ustki Kiyim',
+      'Barsetka',
+      'Barsetka',
+      'Barsetka',
+      'Barsetka',
+      'Barsetka',
+      'Shim',
+      'Shim',
+      'Shim',
+      'Shim',
+      'Shim'
     ][i],
     price: `${Math.floor(Math.random() * 3000 + 500)},000`,
     oldPrice: `${Math.floor(Math.random() * 4000 + 1500)},000`,
     image: [
-      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80',
-      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80',
-      'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80',
-      'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=600&q=80',
-      'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80',
-      'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80',
-      'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80',
-      'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&q=80',
-      'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&q=80',
-      'https://images.unsplash.com/photo-1625948515291-69613efd103f?w=600&q=80',
-      'https://images.unsplash.com/photo-1519558260268-cde7e03a0152?w=600&q=80',
-      'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&q=80',
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80',
-      'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=600&q=80',
-      'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80',
-      'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80',
-      'https://images.unsplash.com/photo-1556656793-08538906a9f8?w=600&q=80',
-      'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80',
-      'https://images.unsplash.com/photo-1624823183493-ed5832f48f18?w=600&q=80',
-      'https://images.unsplash.com/photo-1589492477829-5e65395b66cc?w=600&q=80',
-      'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=600&q=80',
-      'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=80',
-      'https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=600&q=80',
-      'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=600&q=80',
-      'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80',
-      'https://images.unsplash.com/photo-1573047620407-9b5d9ab4ccc4?w=600&q=80',
+      oyqkym1,
+      oyqkym2,
+      oyqkym3,
+      oyqkym4,
+      oyqkym5,
+
+      fuqkym1,
+      fuqkym2,
+      fuqkym3,
+      fuqkym4,
+      fuqkym1,
+
+      dvkym1,
+      dvkym2,
+      dvkym3,
+      dvkym2,
+      dvkym1,
+      
+      tkyim1,
+      tkyim2,
+      tkyim3,
+      tkyim4,
+      tkyim4,
+      tkyim5,
+
+      bkyim1,
+      bkyim2,
+      bkyim3,
+      bkyim4,
+      bkyim5,
+      
       'https://images.unsplash.com/photo-1606986628253-e1a39f4ec40b?w=600&q=80',
       'https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=600&q=80',
       'https://images.unsplash.com/photo-1473396413399-6717ef7c4093?w=600&q=80',

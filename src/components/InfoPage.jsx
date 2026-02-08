@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import futbolka5 from '../images/futbolka-5.png'
+import kiyim5 from '../images/kyim-5.png'
+import oyoqkiyim5 from '../images/oyoqkiyim-5.png'
+import barsetka5 from '../images/barsetka-5.png'
+import look5 from '../images/louk-5.png'
 
 const InfoPage = () => {
   const [isDark, setIsDark] = useState(true);
@@ -10,11 +15,11 @@ const InfoPage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80',
-    'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
-    'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&q=80',
-    'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=800&q=80',
-    'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&q=80',
+    futbolka5,
+    kiyim5,
+    oyoqkiyim5,
+    barsetka5,
+    look5,
   ];
 
   useEffect(() => {
@@ -49,12 +54,12 @@ const InfoPage = () => {
 
   const translations = {
     uz: {
-      nav: 'NEXUS',
+      nav: 'MAGNATE',
       menu: ['Bosh sahifa', 'Xizmatlar', 'Portfolio', 'Aloqa'],
       hero: {
         greeting: 'Xush kelibsiz',
-        title: 'Kelajak Bu Yerda',
-        subtitle: 'Innovatsion texnologiyalar va kreativ yechimlar bilan biznesingizni yangi bosqichga olib chiqing',
+        title: 'Cheklangan mukammallik',
+        subtitle: 'Har bir obraz — sanat darajasida. Biz trendlar ortidan quvmaymiz, biz haqiqiy uslubni yaratamiz. Faqat siz uchun, faqat eng yaxshisi.',
         cta1: 'Boshlash',
         cta2: 'Batafsil'
       },
@@ -67,7 +72,7 @@ const InfoPage = () => {
       servicesTitle: 'Bizning Xizmatlar'
     },
     en: {
-      nav: 'NEXUS',
+      nav: 'MAGNATE',
       menu: ['Home', 'Services', 'Portfolio', 'Contact'],
       hero: {
         greeting: 'Welcome',
@@ -85,7 +90,7 @@ const InfoPage = () => {
       servicesTitle: 'Our Services'
     },
     ru: {
-      nav: 'NEXUS',
+      nav: 'MAGNATE',
       menu: ['Главная', 'Услуги', 'Портфолио', 'Контакты'],
       hero: {
         greeting: 'Добро пожаловать',
@@ -118,7 +123,7 @@ const InfoPage = () => {
     return (
       <div className={`loading-screen ${isDark ? 'dark' : 'light'}`}>
         <div className="loading-content">
-          <div className="loading-logo">NEXUS</div>
+          <div className="loading-logo">MAGNATE</div>
           <div className="loading-bar">
             <div className="loading-progress"></div>
           </div>

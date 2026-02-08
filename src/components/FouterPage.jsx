@@ -1,6 +1,11 @@
 import React from 'react';
 import { ArrowUpRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 
+import brasm1 from '../images/brsm1.png'
+import brasm2 from '../images/brsm2.png'
+import brasm3 from '../images/brsm3.png'
+import brasm4 from '../images/brsm4.png'
+
 const FouterPage = ({ isDark = true, language = 'uz' }) => {
   const translations = {
     uz: {
@@ -33,14 +38,14 @@ const FouterPage = ({ isDark = true, language = 'uz' }) => {
       contact: 'Bog\'lanish',
       location: 'Manzil',
       availability: 'Ish Vaqti',
-      email: 'office@nexus.uz',
-      phone: '+998 71 200 00 00',
+      email: '...',
+      phone: '...',
       address1: 'Toshkent, O\'zbekiston',
-      address2: 'Amir Temur ko\'chasi 108',
-      worktime: 'Dush - Juma: 09:00 - 18:00',
-      weekend: 'Dam olish kunlari: Yopiq',
+      address2: 'Eco Bozor',
+      worktime: 'Barcha kunlar: 09:00 - 20:00',
+      weekend: 'Dam olish kunlari: Ochiq',
       footer: 'Barcha huquqlar himoyalangan',
-      social: ['Instagram', 'LinkedIn', 'Behance']
+      social: ['Instagram', 'Telegram', 'Magnate']
     },
     en: {
       history: {
@@ -125,10 +130,10 @@ const FouterPage = ({ isDark = true, language = 'uz' }) => {
   const t = translations[language];
 
   const historyImages = [
-    'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80',
-    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80',
-    'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=600&q=80',
-    'https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=600&q=80'
+    brasm1,
+    brasm2,
+    brasm3,
+    brasm4
   ];
 
   return (
@@ -236,7 +241,7 @@ const FouterPage = ({ isDark = true, language = 'uz' }) => {
         <div className="footer-container">
           <div className="footer-content">
             <div className="footer-left">
-              <div className="footer-brand">NEXUS</div>
+              <div className="footer-brand">MAGNATE</div>
               <p className="footer-text">© {new Date().getFullYear()} {t.footer}</p>
             </div>
 
