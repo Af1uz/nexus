@@ -14,24 +14,24 @@ const FouterPage = ({ isDark = true, language = 'uz' }) => {
         subtitle: 'Yillar davomida rivojlanish va muvaffaqiyat',
         items: [
           {
-            year: '2015',
+            year: '2018',
             title: 'Boshlanish',
             description: 'Birinchi do\'konimiz Toshkent shahrida ochildi. Kichik jamoa bilan katta orzular.'
           },
           {
-            year: '2018',
+            year: '2023',
             title: 'Kengayish',
-            description: 'O\'zbekiston bo\'ylab 10 ta filial ochildi. Onlayn savdo platformasi ishga tushirildi.'
+            description: 'O\'zbekiston bo\'ylab 2 ta filial ega bo\'ldik. Kengayish va kattalashuv '
           },
           {
             year: '2021',
             title: 'Yangilik',
-            description: 'Premium mahsulotlar liniyasi taqdim etildi. 100,000+ baxtli mijozlar.'
+            description: 'Premium mahsulotlar taqdim etild. baxtli mijozlar.'
           },
           {
             year: '2024',
             title: 'Bugungi Kun',
-            description: 'Eng yirik texnologiya do\'konlaridan biri. 500,000+ mijozlar va 50+ filiallar.'
+            description: 'Eng yirik mahsulotlar va jamoa kengayishia.'
           }
         ]
       },
@@ -116,7 +116,7 @@ const FouterPage = ({ isDark = true, language = 'uz' }) => {
       contact: 'Контакты',
       location: 'Адрес',
       availability: 'Часы Работы',
-      email: 'office@nexus.uz',
+      email: 'magnate.uz',
       phone: '+998 71 200 00 00',
       address1: 'Ташкент, Узбекистан',
       address2: 'Улица Амира Темура 108',

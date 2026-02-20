@@ -64,10 +64,10 @@ const InfoPage = () => {
         cta2: 'Batafsil'
       },
       stats: [
-        { value: '500+', label: 'Loyihalar' },
+        { value: '50+', label: 'Mahsulotlar' },
         { value: '98%', label: 'Mamnunlik' },
         { value: '24/7', label: 'Qo\'llab-quvvatlash' },
-        { value: '50+', label: 'Hamkorlar' }
+        { value: 'Ko\'plab', label: 'Mijozlar' }
       ],
       servicesTitle: 'Bizning Xizmatlar'
     },
@@ -82,10 +82,10 @@ const InfoPage = () => {
         cta2: 'Learn More'
       },
       stats: [
-        { value: '500+', label: 'Projects' },
+        { value: '50+', label: 'Products' },
         { value: '98%', label: 'Satisfaction' },
         { value: '24/7', label: 'Support' },
-        { value: '50+', label: 'Partners' }
+        { value: 'Many', label: 'Customers' }
       ],
       servicesTitle: 'Our Services'
     },
@@ -100,10 +100,10 @@ const InfoPage = () => {
         cta2: 'Подробнее'
       },
       stats: [
-        { value: '500+', label: 'Проектов' },
+        { value: '50+', label: 'Товары' },
         { value: '98%', label: 'Удовлетворенность' },
         { value: '24/7', label: 'Поддержка' },
-        { value: '50+', label: 'Партнеров' }
+        { value: 'Множество', label: 'Покупатели' }
       ],
       servicesTitle: 'Наши Услуги'
     }
@@ -200,13 +200,13 @@ const InfoPage = () => {
             {t.nav}
           </div>
           
-          <div className="nav-menu">
+          {/* <div className="nav-menu">
             {t.menu.map((item, idx) => (
               <a key={idx} href="#" className="nav-link">
                 {item}
               </a>
             ))}
-          </div>
+          </div> */}
 
           <div className="nav-controls">
             <div className="language-switcher">
@@ -280,13 +280,13 @@ const InfoPage = () => {
               </p>
 
               <div className="hero-buttons" data-aos="fade-up" data-aos-delay="300">
-                <button className="btn btn-primary" onClick={handleGetStarted}>
+                {/* <button className="btn btn-primary" onClick={handleGetStarted}>
                   <span>{t.hero.cta1}</span>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <line x1="5" y1="12" x2="19" y2="12"/>
                     <polyline points="12 5 19 12 12 19"/>
                   </svg>
-                </button>
+                </button> */}
                 
                 <button className="btn btn-secondary" onClick={handleLearnMore}>
                   <span>{t.hero.cta2}</span>
@@ -345,7 +345,7 @@ const InfoPage = () => {
       </section>
 
       {/* --- YANGI QO'SHILGAN SEKSIYA: SERVICES --- */}
-      <section className="services-section" id="services">
+      {/* <section className="services-section" id="services">
         <div className="section-container">
             <h2 className="section-title" data-aos="fade-up">
                 {t.servicesTitle}
@@ -354,13 +354,13 @@ const InfoPage = () => {
                 {[1, 2, 3].map((item) => (
                     <div key={item} className="service-card" data-aos="fade-up" data-aos-delay={item * 100}>
                         <div className="service-icon">0{item}</div>
-                        <h3>Digital Solution {item}</h3>
-                        <p>Biznesingiz uchun eng zamonaviy va xavfsiz raqamli texnologiyalar to'plami.</p>
+                        <h3>Xizmatlar {item}</h3>
+                        <p>Barcha turdagi plastik kartalar va elektron to'lov tizimlari orqali 100% ishlaydi</p>
                     </div>
                 ))}
             </div>
         </div>
-      </section>
+      </section> */}
 
       <style jsx>{`
         * {
