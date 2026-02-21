@@ -7,9 +7,7 @@ import oyoqkiyim5 from '../images/oyoqkiyim-5.png'
 import barsetka5 from '../images/barsetka-5.png'
 import look5 from '../images/louk-5.png'
 
-const InfoPage = () => {
-  const [isDark, setIsDark] = useState(true);
-  const [language, setLanguage] = useState('uz');
+const InfoPage = ({ isDark, language, toggleTheme, changeLanguage }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -55,12 +53,10 @@ const InfoPage = () => {
   const translations = {
     uz: {
       nav: 'MAGNATE',
-      menu: ['Bosh sahifa', 'Xizmatlar', 'Portfolio', 'Aloqa'],
       hero: {
         greeting: 'Xush kelibsiz',
         title: 'Cheklangan mukammallik',
         subtitle: 'Har bir obraz — sanat darajasida. Biz trendlar ortidan quvmaymiz, biz haqiqiy uslubni yaratamiz. Faqat siz uchun, faqat eng yaxshisi.',
-        cta1: 'Boshlash',
         cta2: 'Batafsil'
       },
       stats: [
@@ -69,16 +65,13 @@ const InfoPage = () => {
         { value: '24/7', label: 'Qo\'llab-quvvatlash' },
         { value: 'Ko\'plab', label: 'Mijozlar' }
       ],
-      servicesTitle: 'Bizning Xizmatlar'
     },
     en: {
       nav: 'MAGNATE',
-      menu: ['Home', 'Services', 'Portfolio', 'Contact'],
       hero: {
         greeting: 'Welcome',
-        title: 'Future Starts Here',
-        subtitle: 'Take your business to the next level with innovative technologies and creative solutions',
-        cta1: 'Get Started',
+        title: 'Limited Perfection',
+        subtitle: 'Every look is a work of art. We don\'t chase trends, we create real style. Only for you, only the best.',
         cta2: 'Learn More'
       },
       stats: [
@@ -87,33 +80,25 @@ const InfoPage = () => {
         { value: '24/7', label: 'Support' },
         { value: 'Many', label: 'Customers' }
       ],
-      servicesTitle: 'Our Services'
     },
     ru: {
       nav: 'MAGNATE',
-      menu: ['Главная', 'Услуги', 'Портфолио', 'Контакты'],
       hero: {
         greeting: 'Добро пожаловать',
-        title: 'Будущее Начинается Здесь',
-        subtitle: 'Выведите свой бизнес на новый уровень с инновационными технологиями и креативными решениями',
-        cta1: 'Начать',
+        title: 'Ограниченное совершенство',
+        subtitle: 'Каждый образ — на уровне искусства. Мы не гонимся за трендами, мы создаём настоящий стиль. Только для вас, только лучшее.',
         cta2: 'Подробнее'
       },
       stats: [
         { value: '50+', label: 'Товары' },
-        { value: '98%', label: 'Удовлетворенность' },
+        { value: '98%', label: 'Довольны' },
         { value: '24/7', label: 'Поддержка' },
-        { value: 'Множество', label: 'Покупатели' }
+        { value: 'Много', label: 'Клиентов' }
       ],
-      servicesTitle: 'Наши Услуги'
     }
   };
 
   const t = translations[language];
-
-  const handleGetStarted = () => {
-    alert(`${language === 'uz' ? 'Boshlash tugmasi bosildi!' : language === 'en' ? 'Get Started clicked!' : 'Кнопка Начать нажата!'}`);
-  };
 
   const handleLearnMore = () => {
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
@@ -128,7 +113,7 @@ const InfoPage = () => {
             <div className="loading-progress"></div>
           </div>
         </div>
-        
+
         <style jsx>{`
           .loading-screen {
             position: fixed;
@@ -199,41 +184,30 @@ const InfoPage = () => {
           <div className="nav-logo" data-aos="fade-right">
             {t.nav}
           </div>
-          
-          {/* <div className="nav-menu">
-            {t.menu.map((item, idx) => (
-              <a key={idx} href="#" className="nav-link">
-                {item}
-              </a>
-            ))}
-          </div> */}
 
           <div className="nav-controls">
             <div className="language-switcher">
-              <button 
+              <button
                 className={`lang-btn ${language === 'uz' ? 'active' : ''}`}
-                onClick={() => setLanguage('uz')}
+                onClick={() => changeLanguage('uz')}
               >
                 UZ
               </button>
-              <button 
+              <button
                 className={`lang-btn ${language === 'en' ? 'active' : ''}`}
-                onClick={() => setLanguage('en')}
+                onClick={() => changeLanguage('en')}
               >
                 EN
               </button>
-              <button 
+              <button
                 className={`lang-btn ${language === 'ru' ? 'active' : ''}`}
-                onClick={() => setLanguage('ru')}
+                onClick={() => changeLanguage('ru')}
               >
                 RU
               </button>
             </div>
 
-            <button 
-              className="theme-toggle"
-              onClick={() => setIsDark(!isDark)}
-            >
+            <button className="theme-toggle" onClick={toggleTheme}>
               {isDark ? (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="5"/>
@@ -270,24 +244,16 @@ const InfoPage = () => {
               <div className="hero-greeting" data-aos="fade-up">
                 {t.hero.greeting}
               </div>
-              
+
               <h1 className="hero-title" data-aos="fade-up" data-aos-delay="100">
                 {t.hero.title}
               </h1>
-              
+
               <p className="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
                 {t.hero.subtitle}
               </p>
 
               <div className="hero-buttons" data-aos="fade-up" data-aos-delay="300">
-                {/* <button className="btn btn-primary" onClick={handleGetStarted}>
-                  <span>{t.hero.cta1}</span>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="12 5 19 12 12 19"/>
-                  </svg>
-                </button> */}
-                
                 <button className="btn btn-secondary" onClick={handleLearnMore}>
                   <span>{t.hero.cta2}</span>
                 </button>
@@ -344,39 +310,10 @@ const InfoPage = () => {
         </div>
       </section>
 
-      {/* --- YANGI QO'SHILGAN SEKSIYA: SERVICES --- */}
-      {/* <section className="services-section" id="services">
-        <div className="section-container">
-            <h2 className="section-title" data-aos="fade-up">
-                {t.servicesTitle}
-            </h2>
-            <div className="services-grid">
-                {[1, 2, 3].map((item) => (
-                    <div key={item} className="service-card" data-aos="fade-up" data-aos-delay={item * 100}>
-                        <div className="service-icon">0{item}</div>
-                        <h3>Xizmatlar {item}</h3>
-                        <p>Barcha turdagi plastik kartalar va elektron to'lov tizimlari orqali 100% ishlaydi</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-      </section> */}
-
       <style jsx>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        html {
-          scroll-behavior: smooth;
-          overflow-x: hidden;
-        }
-
-        body {
-          overflow-x: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { overflow-x: hidden; }
 
         .main-container {
           min-height: 100vh;
@@ -386,710 +323,148 @@ const InfoPage = () => {
           width: 100%;
           position: relative;
         }
+        .main-container.dark { background: #000000; color: #ffffff; }
+        .main-container.light { background: #ffffff; color: #000000; }
 
-        .main-container.dark {
-          background: #000000;
-          color: #ffffff;
-        }
-
-        .main-container.light {
-          background: #ffffff;
-          color: #000000;
-        }
-
-        /* Navigation */
         .navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 100;
-          padding: 1.5rem 0;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          width: 100%;
+          position: fixed; top: 0; left: 0; right: 0;
+          z-index: 100; padding: 1.5rem 0;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); width: 100%;
         }
-
-        .navbar.scrolled {
-          backdrop-filter: blur(20px);
-          border-bottom: 1px solid;
-        }
-
-        .dark .navbar.scrolled {
-          background: rgba(0, 0, 0, 0.8);
-          border-color: #1a1a1a;
-        }
-
-        .light .navbar.scrolled {
-          background: rgba(255, 255, 255, 0.8);
-          border-color: #f0f0f0;
-        }
+        .navbar.scrolled { backdrop-filter: blur(20px); border-bottom: 1px solid; }
+        .dark .navbar.scrolled { background: rgba(0,0,0,0.8); border-color: #1a1a1a; }
+        .light .navbar.scrolled { background: rgba(255,255,255,0.8); border-color: #f0f0f0; }
 
         .nav-container {
-          max-width: 1400px;
-          margin: 0 auto;
-          padding: 0 2rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 2rem;
+          max-width: 1400px; margin: 0 auto; padding: 0 2rem;
+          display: flex; justify-content: space-between; align-items: center; gap: 2rem;
         }
-
-        .nav-logo {
-          font-size: 1.5rem;
-          font-weight: 700;
-          letter-spacing: 0.3em;
-          cursor: pointer;
-          white-space: nowrap;
-          flex-shrink: 0;
-        }
-
-        .nav-menu {
-          display: flex;
-          gap: 2.5rem;
-          flex: 1;
-          justify-content: center;
-        }
-
-        .nav-link {
-          text-decoration: none;
-          font-weight: 500;
-          font-size: 0.95rem;
-          transition: all 0.3s ease;
-          position: relative;
-          white-space: nowrap;
-        }
-
-        .dark .nav-link {
-          color: #ffffff;
-        }
-
-        .light .nav-link {
-          color: #000000;
-        }
-
-        .nav-link::after {
-          content: '';
-          position: absolute;
-          bottom: -5px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          transition: width 0.3s ease;
-        }
-
-        .dark .nav-link::after {
-          background: #ffffff;
-        }
-
-        .light .nav-link::after {
-          background: #000000;
-        }
-
-        .nav-link:hover::after {
-          width: 100%;
-        }
-
-        .nav-controls {
-          display: flex;
-          gap: 1rem;
-          align-items: center;
-          flex-shrink: 0;
-        }
-
-        .language-switcher {
-          display: flex;
-          gap: 0.5rem;
-        }
-
+        .nav-logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.3em; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+        .nav-controls { display: flex; gap: 1rem; align-items: center; flex-shrink: 0; }
+        .language-switcher { display: flex; gap: 0.5rem; }
         .lang-btn {
-          padding: 0.5rem 1rem;
-          border: none;
-          background: transparent;
-          cursor: pointer;
-          font-weight: 500;
-          font-size: 0.875rem;
-          transition: all 0.3s ease;
-          border-radius: 4px;
-          white-space: nowrap;
+          padding: 0.5rem 1rem; border: none; background: transparent;
+          cursor: pointer; font-weight: 500; font-size: 0.875rem;
+          transition: all 0.3s ease; border-radius: 4px; white-space: nowrap;
         }
-
-        .dark .lang-btn {
-          color: #ffffff;
-        }
-
-        .light .lang-btn {
-          color: #000000;
-        }
-
-        .dark .lang-btn.active {
-          background: #ffffff;
-          color: #000000;
-        }
-
-        .light .lang-btn.active {
-          background: #000000;
-          color: #ffffff;
-        }
-
+        .dark .lang-btn { color: #ffffff; }
+        .light .lang-btn { color: #000000; }
+        .dark .lang-btn.active { background: #ffffff; color: #000000; }
+        .light .lang-btn.active { background: #000000; color: #ffffff; }
         .theme-toggle {
-          padding: 0.6rem;
-          border: none;
-          background: transparent;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          transition: all 0.3s ease;
+          padding: 0.6rem; border: none; background: transparent;
+          cursor: pointer; display: flex; align-items: center;
+          justify-content: center; border-radius: 50%; transition: all 0.3s ease;
         }
+        .dark .theme-toggle { color: #ffffff; border: 1px solid #1a1a1a; }
+        .light .theme-toggle { color: #000000; border: 1px solid #f0f0f0; }
+        .theme-toggle:hover { transform: rotate(180deg); }
 
-        .dark .theme-toggle {
-          color: #ffffff;
-          border: 1px solid #1a1a1a;
-        }
-
-        .light .theme-toggle {
-          color: #000000;
-          border: 1px solid #f0f0f0;
-        }
-
-        .theme-toggle:hover {
-          transform: rotate(180deg);
-        }
-
-        /* Hero Section */
         .hero-section {
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          padding: 10rem 2rem 4rem;
-          width: 100%;
-          overflow: hidden;
+          min-height: 100vh; display: flex; align-items: center;
+          justify-content: center; position: relative;
+          padding: 10rem 2rem 4rem; width: 100%; overflow: hidden;
         }
-
-        /* Background Decorations */
         .hero-bg-decoration {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 0;
-          overflow: hidden;
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          pointer-events: none; z-index: 0; overflow: hidden;
         }
-
-        .bg-circle {
-          position: absolute;
-          border-radius: 50%;
-          opacity: 0.03;
-        }
-
-        .dark .bg-circle {
-          background: #ffffff;
-        }
-
-        .light .bg-circle {
-          background: #000000;
-        }
-
-        .bg-circle-1 {
-          width: 500px;
-          height: 500px;
-          top: -150px;
-          right: -100px;
-          animation: floatSlow 25s ease-in-out infinite;
-        }
-
-        .bg-circle-2 {
-          width: 350px;
-          height: 350px;
-          bottom: -100px;
-          left: -80px;
-          animation: floatSlow 20s ease-in-out infinite reverse;
-        }
-
-        .bg-circle-3 {
-          width: 250px;
-          height: 250px;
-          top: 40%;
-          left: 15%;
-          animation: floatSlow 22s ease-in-out infinite;
-        }
-
+        .bg-circle { position: absolute; border-radius: 50%; opacity: 0.03; }
+        .dark .bg-circle { background: #ffffff; }
+        .light .bg-circle { background: #000000; }
+        .bg-circle-1 { width: 500px; height: 500px; top: -150px; right: -100px; animation: floatSlow 25s ease-in-out infinite; }
+        .bg-circle-2 { width: 350px; height: 350px; bottom: -100px; left: -80px; animation: floatSlow 20s ease-in-out infinite reverse; }
+        .bg-circle-3 { width: 250px; height: 250px; top: 40%; left: 15%; animation: floatSlow 22s ease-in-out infinite; }
         @keyframes floatSlow {
-          0%, 100% {
-            transform: translate(0, 0);
-          }
-          50% {
-            transform: translate(15px, -15px);
-          }
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(15px, -15px); }
         }
 
-        .hero-container {
-          max-width: 1400px;
-          margin: 0 auto;
-          width: 100%;
-          position: relative;
-          z-index: 1;
-        }
-
-        .hero-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 6rem;
-          align-items: center;
-        }
-
-        /* Left Side */
-        .hero-left {
-          max-width: 600px;
-        }
-
-        .hero-greeting {
-          font-size: 0.95rem;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          margin-bottom: 1.5rem;
-          opacity: 0.6;
-        }
-
-        .hero-title {
-          font-size: clamp(2.5rem, 6vw, 4.5rem);
-          font-weight: 300;
-          line-height: 1.1;
-          letter-spacing: -0.02em;
-          margin-bottom: 1.5rem;
-        }
-
-        .hero-subtitle {
-          font-size: 1.15rem;
-          line-height: 1.8;
-          margin-bottom: 2.5rem;
-          opacity: 0.7;
-          font-weight: 300;
-        }
-
-        .hero-buttons {
-          display: flex;
-          gap: 1rem;
-          margin-bottom: 4rem;
-        }
-
+        .hero-container { max-width: 1400px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+        .hero-left { max-width: 600px; }
+        .hero-greeting { font-size: 0.95rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0.6; }
+        .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+        .hero-subtitle { font-size: 1.15rem; line-height: 1.8; margin-bottom: 2.5rem; opacity: 0.7; font-weight: 300; }
+        .hero-buttons { display: flex; gap: 1rem; margin-bottom: 4rem; }
         .btn {
-          padding: 1rem 2.5rem;
-          border: none;
-          font-size: 1rem;
-          font-weight: 500;
-          cursor: pointer;
-          border-radius: 50px;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          transition: all 0.3s ease;
-          font-family: inherit;
-          white-space: nowrap;
+          padding: 1rem 2.5rem; border: none; font-size: 1rem; font-weight: 500;
+          cursor: pointer; border-radius: 50px; display: inline-flex;
+          align-items: center; gap: 0.5rem; transition: all 0.3s ease;
+          font-family: inherit; white-space: nowrap;
         }
+        .btn-secondary { background: transparent; border: 1px solid; }
+        .dark .btn-secondary { color: #ffffff; border-color: #ffffff; }
+        .light .btn-secondary { color: #000000; border-color: #000000; }
+        .btn-secondary:hover { transform: translateY(-2px); }
+        .dark .btn-secondary:hover { background: #ffffff; color: #000000; }
+        .light .btn-secondary:hover { background: #000000; color: #ffffff; }
 
-        .btn-primary {
-          color: #000000;
-        }
+        .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; padding-top: 2rem; border-top: 1px solid; }
+        .dark .hero-stats { border-color: #1a1a1a; }
+        .light .hero-stats { border-color: #f0f0f0; }
+        .desktop-stats { display: grid; }
+        .mobile-stats { display: none; margin-top: 4rem; }
+        .stat-item { text-align: left; }
+        .stat-value { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 0.85rem; opacity: 0.6; }
 
-        .dark .btn-primary {
-          background: #ffffff;
-        }
-
-        .light .btn-primary {
-          background: #000000;
-          color: #ffffff;
-        }
-
-        .btn-primary:hover {
-          transform: translateX(5px);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-secondary {
-          background: transparent;
-          border: 1px solid;
-        }
-
-        .dark .btn-secondary {
-          color: #ffffff;
-          border-color: #ffffff;
-        }
-
-        .light .btn-secondary {
-          color: #000000;
-          border-color: #000000;
-        }
-
-        .btn-secondary:hover {
-          transform: translateY(-2px);
-        }
-
-        .dark .btn-secondary:hover {
-          background: #ffffff;
-          color: #000000;
-        }
-
-        .light .btn-secondary:hover {
-          background: #000000;
-          color: #ffffff;
-        }
-
-        /* Stats */
-        .hero-stats {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 2rem;
-          padding-top: 2rem;
-          border-top: 1px solid;
-        }
-
-        .dark .hero-stats {
-          border-color: #1a1a1a;
-        }
-
-        .light .hero-stats {
-          border-color: #f0f0f0;
-        }
-
-        .desktop-stats {
-          display: grid;
-        }
-
-        .mobile-stats {
-          display: none;
-          margin-top: 4rem;
-        }
-
-        .stat-item {
-          text-align: left;
-        }
-
-        .stat-value {
-          font-size: 2.2rem;
-          font-weight: 700;
-          margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-          font-size: 0.85rem;
-          opacity: 0.6;
-        }
-
-        /* Right Side - Image Carousel */
-        .hero-right {
-          position: relative;
-          height: 600px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .image-carousel {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          border-radius: 20px;
-          overflow: hidden;
-        }
-
+        .hero-right { position: relative; height: 600px; display: flex; align-items: center; justify-content: center; }
+        .image-carousel { position: relative; width: 100%; height: 100%; border-radius: 20px; overflow: hidden; }
         .carousel-image {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-size: cover;
-          background-position: center;
-          opacity: 0;
-          transform: scale(1.1);
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          background-size: cover; background-position: center;
+          opacity: 0; transform: scale(1.1);
           transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .carousel-image.active {
-          opacity: 1;
-          transform: scale(1);
-        }
-
-        .carousel-image.prev {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-
+        .carousel-image.active { opacity: 1; transform: scale(1); }
+        .carousel-image.prev { opacity: 0; transform: scale(0.95); }
         .carousel-dots {
-          position: absolute;
-          bottom: 2rem;
-          left: 50%;
-          transform: translateX(-50%);
-          display: flex;
-          gap: 0.8rem;
-          z-index: 10;
+          position: absolute; bottom: 2rem; left: 50%;
+          transform: translateX(-50%); display: flex; gap: 0.8rem; z-index: 10;
         }
+        .dot { width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer; transition: all 0.3s ease; }
+        .dark .dot { background: rgba(255,255,255,0.3); }
+        .light .dot { background: rgba(0,0,0,0.3); }
+        .dark .dot.active { background: #ffffff; width: 30px; border-radius: 5px; }
+        .light .dot.active { background: #000000; width: 30px; border-radius: 5px; }
 
-        .dot {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          border: none;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-
-        .dark .dot {
-          background: rgba(255, 255, 255, 0.3);
-        }
-
-        .light .dot {
-          background: rgba(0, 0, 0, 0.3);
-        }
-
-        .dark .dot.active {
-          background: #ffffff;
-          width: 30px;
-          border-radius: 5px;
-        }
-
-        .light .dot.active {
-          background: #000000;
-          width: 30px;
-          border-radius: 5px;
-        }
-
-        /* Scroll Indicator */
-        .scroll-indicator {
-          position: absolute;
-          bottom: 3rem;
-          left: 50%;
-          transform: translateX(-50%);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.5rem;
-        }
-
-        .scroll-line {
-          width: 1px;
-          height: 60px;
-          animation: scrollLine 2s ease-in-out infinite;
-        }
-
-        .dark .scroll-line {
-          background: linear-gradient(to bottom, transparent, #ffffff);
-        }
-
-        .light .scroll-line {
-          background: linear-gradient(to bottom, transparent, #000000);
-        }
-
+        .scroll-indicator { position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+        .scroll-line { width: 1px; height: 60px; animation: scrollLine 2s ease-in-out infinite; }
+        .dark .scroll-line { background: linear-gradient(to bottom, transparent, #ffffff); }
+        .light .scroll-line { background: linear-gradient(to bottom, transparent, #000000); }
         @keyframes scrollLine {
-          0%, 100% {
-            transform: translateY(0);
-            opacity: 0;
-          }
-          50% {
-            transform: translateY(20px);
-            opacity: 1;
-          }
+          0%, 100% { transform: translateY(0); opacity: 0; }
+          50% { transform: translateY(20px); opacity: 1; }
         }
+        .scroll-text { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.5; }
 
-        .scroll-text {
-          font-size: 0.7rem;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          opacity: 0.5;
-        }
-
-        /* Services Section (Yangi) */
-        .services-section {
-            padding: 10rem 2rem;
-            width: 100%;
-        }
-
-        .section-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 4rem;
-            text-align: center;
-            letter-spacing: -0.02em;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            padding: 3rem;
-            border-radius: 24px;
-            transition: all 0.4s ease;
-            border: 1px solid transparent;
-        }
-
-        .dark .service-card {
-            background: #0a0a0a;
-            border-color: #1a1a1a;
-        }
-
-        .light .service-card {
-            background: #f9f9f9;
-            border-color: #f0f0f0;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: currentColor;
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            opacity: 0.2;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            opacity: 0.6;
-            line-height: 1.6;
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-          .hero-grid {
-            gap: 4rem;
-          }
-
-          .hero-right {
-            height: 500px;
-          }
-        }
-
+        @media (max-width: 1200px) { .hero-grid { gap: 4rem; } .hero-right { height: 500px; } }
         @media (max-width: 1024px) {
-          .nav-menu {
-            display: none;
-          }
-
-          .hero-grid {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-          }
-
-          .hero-left {
-            max-width: 100%;
-          }
-
-          .hero-right {
-            height: 400px;
-          }
-
-          .desktop-stats {
-            display: none;
-          }
-
-          .mobile-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-          }
+          .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+          .hero-left { max-width: 100%; }
+          .hero-right { height: 400px; }
+          .desktop-stats { display: none; }
+          .mobile-stats { display: grid; grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 640px) {
-          .nav-container {
-            padding: 0 1rem;
-          }
-
-          .nav-logo {
-            font-size: 1.2rem;
-            letter-spacing: 0.2em;
-          }
-
-          .language-switcher {
-            gap: 0.25rem;
-          }
-
-          .lang-btn {
-            padding: 0.4rem 0.7rem;
-            font-size: 0.75rem;
-          }
-
-          .hero-section {
-            padding: 7rem 1rem 3rem;
-          }
-
-          .hero-greeting {
-            font-size: 0.8rem;
-          }
-
-          .hero-subtitle {
-            font-size: 1rem;
-          }
-
-          .hero-buttons {
-            flex-direction: column;
-            gap: 0.8rem;
-          }
-
-          .btn {
-            width: 100%;
-            justify-content: center;
-            padding: 0.9rem 2rem;
-            font-size: 0.95rem;
-          }
-
-          .hero-right {
-            height: 350px;
-          }
-
-          .mobile-stats {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 3rem;
-          }
-
-          .stat-item {
-            text-align: center;
-          }
-
-          .stat-value {
-            font-size: 2rem;
-          }
-
-          .stat-label {
-            font-size: 0.8rem;
-          }
-
-          .carousel-dots {
-            bottom: 1rem;
-            gap: 0.6rem;
-          }
-
-          .dot {
-            width: 8px;
-            height: 8px;
-          }
-
-          .dot.active {
-            width: 24px;
-          }
-          
-          .section-title {
-              font-size: 2rem;
-          }
+          .nav-container { padding: 0 1rem; }
+          .nav-logo { font-size: 1.2rem; letter-spacing: 0.2em; }
+          .language-switcher { gap: 0.25rem; }
+          .lang-btn { padding: 0.4rem 0.7rem; font-size: 0.75rem; }
+          .hero-section { padding: 7rem 1rem 3rem; }
+          .hero-greeting { font-size: 0.8rem; }
+          .hero-subtitle { font-size: 1rem; }
+          .hero-buttons { flex-direction: column; gap: 0.8rem; }
+          .btn { width: 100%; justify-content: center; padding: 0.9rem 2rem; font-size: 0.95rem; }
+          .hero-right { height: 350px; }
+          .mobile-stats { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 3rem; }
+          .stat-item { text-align: center; }
+          .stat-value { font-size: 2rem; }
+          .stat-label { font-size: 0.8rem; }
+          .carousel-dots { bottom: 1rem; gap: 0.6rem; }
+          .dot { width: 8px; height: 8px; }
+          .dot.active { width: 24px; }
         }
       `}</style>
     </div>

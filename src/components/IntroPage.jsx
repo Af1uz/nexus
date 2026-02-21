@@ -25,39 +25,75 @@ import bkyim3 from '../images/bkym3.png';
 import bkyim4 from '../images/bkym4.png';
 import bkyim5 from '../images/bkym5.png';
 
-// ✅ NARXLARNI SHU YERDAN O'ZGARTIRING
-const PRODUCTS = [
-  { id: 1,  name: 'Oyoq kiyim', price: '875,000',   oldPrice: '', image: oyqkym1 },
-  { id: 2,  name: 'Oyoq kiyim', price: '775,000',   oldPrice: '', image: oyqkym2 },
-  { id: 3,  name: 'Oyoq kiyim', price: '795,000',   oldPrice: '', image: oyqkym3 },
-  { id: 4,  name: 'Oyoq kiyim', price: '850,000',   oldPrice: '', image: oyqkym4 },
-  { id: 5,  name: 'Oyoq kiyim', price: '695,000',   oldPrice: '', image: oyqkym5 },
-  { id: 6,  name: 'Futbolka',   price: '495,000',   oldPrice: '',   image: fuqkym1 },
-  { id: 7,  name: 'Futbolka',   price: '495,000',   oldPrice: '',   image: fuqkym2 },
-  { id: 8,  name: 'Futbolka',   price: '495,000',   oldPrice: '',   image: fuqkym3 },
-  { id: 9,  name: 'Futbolka',   price: '350,000',   oldPrice: '',   image: fuqkym4 },
-  // { id: 10, name: 'Futbolka',   price: '--',   oldPrice: '',   image: fuqkym1 },
-  { id: 11, name: 'Dvoyka',     price: '1,795,000',   oldPrice: '',   image: dvkym1 },
-  { id: 12, name: 'Dvoyka',     price: '1,295,000',   oldPrice: '',   image: dvkym2 },
-  { id: 13, name: 'Dvoyka',     price: '1,395,000',   oldPrice: '',   image: dvkym3 },
-  { id: 14, name: 'Dvoyka',     price: '--',   oldPrice: '',   image: dvkym2 },
-  { id: 15, name: 'Dvoyka',     price: '--',   oldPrice: '',   image: dvkym1 },
-  { id: 16, name: 'Ustki Kiyim', price: '1,355,000', oldPrice: '', image: tkyim1 },
-  { id: 17, name: 'Ustki Kiyim', price: '1,090,000', oldPrice: '', image: tkyim2 },
-  { id: 18, name: 'Ustki Kiyim', price: '1,395,000',   oldPrice: '', image: tkyim3 },
-  { id: 19, name: 'Ustki Kiyim', price: '1,395,000', oldPrice: '', image: tkyim4 },
-  { id: 20, name: 'Ustki Kiyim', price: '1,350,000', oldPrice: '', image: tkyim5 },
-  { id: 21, name: 'Barsetka',   price: '790,000',   oldPrice: '',   image: bkyim1 },
-  { id: 22, name: 'Barsetka',   price: '890,000',   oldPrice: '',   image: bkyim2 },
-  { id: 23, name: 'Barsetka',   price: '430,000',   oldPrice: '',   image: bkyim3 },
-  { id: 24, name: 'Barsetka',   price: '790,000',   oldPrice: '',   image: bkyim4 },
-  { id: 25, name: 'Barsetka',   price: '290,000',   oldPrice: '',   image: bkyim5 },
-  // { id: 26, name: 'Shim',       price: '380,000',   oldPrice: '',   image: 'https://images.unsplash.com/photo-1606986628253-e1a39f4ec40b?w=600&q=80' },
-  // { id: 27, name: 'Shim',       price: '420,000',   oldPrice: '',   image: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=600&q=80' },
-  // { id: 28, name: 'Shim',       price: '360,000',   oldPrice: '',   image: 'https://images.unsplash.com/photo-1473396413399-6717ef7c4093?w=600&q=80' },
-  // { id: 29, name: 'Shim',       price: '400,000',   oldPrice: '',   image: 'https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=600&q=80' },
-  // { id: 30, name: 'Shim',       price: '350,000',   oldPrice: '',   image: 'https://images.unsplash.com/photo-1606986628253-e1a39f4ec40b?w=600&q=80' },
+// Mahsulot kategoriyalari — til bo'yicha nomlar
+const PRODUCT_KEYS = [
+  { key: 'shoes',  price: '875,000', oldPrice: '', image: oyqkym1 },
+  { key: 'shoes',  price: '775,000', oldPrice: '', image: oyqkym2 },
+  { key: 'shoes',  price: '795,000', oldPrice: '', image: oyqkym3 },
+  { key: 'shoes',  price: '850,000', oldPrice: '', image: oyqkym4 },
+  { key: 'shoes',  price: '695,000', oldPrice: '', image: oyqkym5 },
+  { key: 'tshirt', price: '495,000', oldPrice: '', image: fuqkym1 },
+  { key: 'tshirt', price: '495,000', oldPrice: '', image: fuqkym2 },
+  { key: 'tshirt', price: '495,000', oldPrice: '', image: fuqkym3 },
+  { key: 'tshirt', price: '350,000', oldPrice: '', image: fuqkym4 },
+  { key: 'twopiece', price: '1,795,000', oldPrice: '', image: dvkym1 },
+  { key: 'twopiece', price: '1,295,000', oldPrice: '', image: dvkym2 },
+  { key: 'twopiece', price: '1,395,000', oldPrice: '', image: dvkym3 },
+  { key: 'twopiece', price: '--',        oldPrice: '', image: dvkym2 },
+  { key: 'twopiece', price: '--',        oldPrice: '', image: dvkym1 },
+  { key: 'outerwear', price: '1,355,000', oldPrice: '', image: tkyim1 },
+  { key: 'outerwear', price: '1,090,000', oldPrice: '', image: tkyim2 },
+  { key: 'outerwear', price: '1,395,000', oldPrice: '', image: tkyim3 },
+  { key: 'outerwear', price: '1,395,000', oldPrice: '', image: tkyim4 },
+  { key: 'outerwear', price: '1,350,000', oldPrice: '', image: tkyim5 },
+  { key: 'bag', price: '790,000', oldPrice: '', image: bkyim1 },
+  { key: 'bag', price: '890,000', oldPrice: '', image: bkyim2 },
+  { key: 'bag', price: '430,000', oldPrice: '', image: bkyim3 },
+  { key: 'bag', price: '790,000', oldPrice: '', image: bkyim4 },
+  { key: 'bag', price: '290,000', oldPrice: '', image: bkyim5 },
 ];
+
+const translations = {
+  uz: {
+    title: 'Bizning Mahsulotlarimiz',
+    subtitle: 'Premium sifat va zamonaviy texnologiyalar',
+    fast: 'Tez',
+    safe: 'Sifatli',
+    names: {
+      shoes:     'Oyoq kiyim',
+      tshirt:    'Futbolka',
+      twopiece:  'Tepa Pas',
+      outerwear: 'Ustki kiyim',
+      bag:       'Sumka',
+    }
+  },
+  en: {
+    title: 'Our Products',
+    subtitle: 'Premium quality and modern technologies',
+    fast: 'Fast',
+    safe: 'Quality',
+    names: {
+      shoes:     'Footwear',
+      tshirt:    'T-Shirt',
+      twopiece:  'Two-Piece Set',
+      outerwear: 'Outerwear',
+      bag:       'Bag',
+    }
+  },
+  ru: {
+    title: 'Наши Товары',
+    subtitle: 'Премиум качество и современные технологии',
+    fast: 'Быстро',
+    safe: 'Качество',
+    names: {
+      shoes:     'Обувь',
+      tshirt:    'Футболка',
+      twopiece:  'Двойка',
+      outerwear: 'Верхняя одежда',
+      bag:       'Барсетка',
+    }
+  },
+};
 
 const css = `
   .intro-page { transition: background-color 0.4s ease, color 0.4s ease; }
@@ -71,9 +107,9 @@ const css = `
   .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
   .product-card { display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; position: relative; }
   .product-card:hover { transform: translateY(-10px); }
-  .product-image-wrapper { position: relative; width: 100%; padding-top: 100%; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid; }
-  .dark .product-image-wrapper { background: #0a0a0a; border-color: #1a1a1a; }
-  .light .product-image-wrapper { background: #f5f5f5; border-color: #e5e5e5; }
+  .product-image-wrapper { position: relative; width: 100%; padding-top: 100%; overflow: hidden; margin-bottom: 1.5rem; }
+  .dark .product-image-wrapper { background: #0a0a0a; }
+  .light .product-image-wrapper { background: #f5f5f5; }
   .product-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.6s ease; }
   .product-card:hover .product-image { transform: scale(1.1); }
   .product-badge { position: absolute; top: 1rem; right: 1rem; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
@@ -104,12 +140,6 @@ const IntroPage = ({ isDark = true, language = 'uz' }) => {
     AOS.init({ duration: 1000, once: false, easing: 'ease-in-out' });
   }, []);
 
-  const translations = {
-    uz: { title: 'Bizning Mahsulotlarimiz', subtitle: 'Premium sifat va zamonaviy texnologiyalar' },
-    en: { title: 'Our Products', subtitle: 'Premium quality and modern technology' },
-    ru: { title: 'Наши Продукты', subtitle: 'Премиум качество и современные технологии' },
-  };
-
   const t = translations[language];
 
   return (
@@ -123,9 +153,9 @@ const IntroPage = ({ isDark = true, language = 'uz' }) => {
           </div>
 
           <div className="products-grid">
-            {PRODUCTS.map((product, idx) => (
+            {PRODUCT_KEYS.map((product, idx) => (
               <div
-                key={product.id}
+                key={idx}
                 className="product-card"
                 data-aos="fade-up"
                 data-aos-delay={Math.min(idx * 50, 500)}
@@ -138,16 +168,16 @@ const IntroPage = ({ isDark = true, language = 'uz' }) => {
                 </div>
 
                 <div className="product-content">
-                  <h3 className="product-name">{product.name}</h3>
+                  <h3 className="product-name">{t.names[product.key]}</h3>
 
                   <div className="product-features">
                     <div className="feature-item">
                       <Zap size={14} />
-                      <span>Fast</span>
+                      <span>{t.fast}</span>
                     </div>
                     <div className="feature-item">
                       <Shield size={14} />
-                      <span>Safe</span>
+                      <span>{t.safe}</span>
                     </div>
                   </div>
 
