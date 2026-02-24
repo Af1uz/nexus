@@ -208,10 +208,6 @@ const FouterPage = ({ isDark = true, language = 'uz' }) => {
               <div className="addr-divider" />
 
               <div className="addr-contact-row">
-                <Mail size={15} />
-                <a href={`mailto:${t.email}`} className="addr-contact-link">{t.email}</a>
-              </div>
-              <div className="addr-contact-row">
                 <Clock size={15} />
                 <span className="addr-contact-text">{t.worktime}</span>
               </div>
@@ -221,7 +217,7 @@ const FouterPage = ({ isDark = true, language = 'uz' }) => {
               </div>
 
               <a
-                href="https://maps.google.com/?q=Eco+Bozor+Tashkent"
+                href="https://maps.google.com/?q=41.353230599999996,69.3512892"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="map-link-btn"
@@ -236,7 +232,7 @@ const FouterPage = ({ isDark = true, language = 'uz' }) => {
               <div className="map-frame-wrap">
                 <iframe
                   title="Magnate Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11956.0!2d70.0167!3d41.5617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38b5a52b6d0b3d7f%3A0x7e8f1c2a3b4c5d6e!2sChimgan%2C%20Uzbekistan!5e0!3m2!1sen!2suz!4v1700000000000"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0!2d69.3512892!3d41.353230599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b11404bcf4f%3A0x69e9e6e30a920e30!2sEcobozor!5e0!3m2!1sen!2suz!4v1700000000000"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

@@ -104,8 +104,8 @@ const PRODUCT_KEYS = [
   { key: 'twopiece', price: '1,795,000', oldPrice: '', images: [dvkym1, dvkymm1 /* ← 2-rasm O'ZGARTIRING */] },
   { key: 'twopiece', price: '1,295,000', oldPrice: '', images: [dvkym2, dvkymm2 /* ← 2-rasm O'ZGARTIRING */] },
   { key: 'twopiece', price: '1,395,000', oldPrice: '', images: [dvkym3, dvkymm3 /* ← 2-rasm O'ZGARTIRING */] },
-  { key: 'twopiece', price: '--',         oldPrice: '', images: [dvkym2, dvkymm1 /* ← 2-rasm O'ZGARTIRING */] },
-  { key: 'twopiece', price: '--',         oldPrice: '', images: [dvkym1, dvkymm2 /* ← 2-rasm O'ZGARTIRING */] },
+  // { key: 'twopiece', price: '--',         oldPrice: '', images: [dvkym2, dvkymm1 /* ← 2-rasm O'ZGARTIRING */] },
+  // { key: 'twopiece', price: '--',         oldPrice: '', images: [dvkym1, dvkymm2 /* ← 2-rasm O'ZGARTIRING */] },
 
   // ──────────── 🧥 USTKI KIYIM (5 ta) ────────────
   { key: 'outerwear', price: '1,355,000', oldPrice: '', images: [tkyim1, tkyimm1 /* ← 2-rasm O'ZGARTIRING */] },
